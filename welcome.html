@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>大牙科技</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-800">大牙科技</a>
+            <div class="md:block hidden">
+                <ul class="flex space-x-4">
+                    <li><a href="https://scratchhcr.github.io/up_scratchhcr/mian.html" class="text-gray-600 hover:text-gray-800">首页</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">服务</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="md:hidden block">
+                <button id="menu-toggle" class="text-gray-600 hover:text-gray-800">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="menu-dropdown" class="md:hidden hidden bg-white shadow-md">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="https://scratchhcr.github.io/up_scratchhcr/mian.html" class="text-gray-600 hover:text-gray-800">首页</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">服务</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">欢迎来到大牙科技</h1>
+            <p class="text-lg text-gray-600 mb-8">专注于少儿编程和电脑软件修理</p>
+            <a href="https://scratchhcr.github.io/up_scratchhcr/mian.html" class="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600">小红书“scratch火柴人”</a>
+        </div>
+    </section>
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">关于我们</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                    <img src="https://picsum.photos/600/400" alt="About Us" class="rounded-md">
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <p class="text-gray-600 leading-relaxed mb-4">新时代新气象，我们拥有一支充满激情和创造力的团队。</p>
+                    <p class="text-gray-600 leading-relaxed">小红书搜索“scratch火柴人”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">我们的服务</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-md shadow-md h-full">
+                        <i class="fa-solid fa-code text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">电脑维修</h3>
+                        <p class="text-gray-600 leading-relaxed">致力于解决电脑系统问题，专业远程重装系统、修理电脑。</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-md shadow-md h-full">
+                        <i class="fa-solid fa-cloud text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">软件安装服务</h3>
+                        <p class="text-gray-600 leading-relaxed">安装正版软件，解决软件安装问题。</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-md shadow-md h-full">
+                        <i class="fa-solid fa-chart-line text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">学习资料</h3>
+                        <p class="text-gray-600 leading-relaxed">原创和转载资料，助力你的学习生活。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">我们的软件产品</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-md shadow-md h-full">
+                        <i class="fa-solid fa-code text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">大牙游戏</h3>
+                        <p class="text-gray-600 leading-relaxed">包括html网页游戏和打包的scratch游戏。。</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-md shadow-md h-full">
+                        <i class="fa-solid fa-cloud text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">大牙随机点名</h3>
+                        <p class="text-gray-600 leading-relaxed">科技随机点名程序，在线随机点名，支持导入名单，科技助力教学。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">联系我们</h2>
+            <h4>邮箱：scratchhcr@qq.com</h4>
+            <br>
+            <h4>小红书：scratch火柴人</h4>
+        </div>
+    </section>
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white">版权所有 &copy; 2025 大牙科技</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuDropdown = document.getElementById('menu-dropdown');
+
+        menuToggle.addEventListener('click', () => {
+            menuDropdown.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
+    

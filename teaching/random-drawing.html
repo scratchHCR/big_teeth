@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <title>大牙随机点名系统</title>
+    <style>
+        body {
+            background: url('https://picsum.photos/1920/1080/?blur=1') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            height: 60px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .main-title {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 175px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .info-box {
+            background-color: white;
+            border-radius: 10px;
+            margin: 45px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .button-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .speed-slider {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .file-path-box {
+            text-align: left;
+            margin: 20px;
+            white-space: nowrap;
+        }
+
+        .file-path-box a {
+            display: inline;
+            margin: 0 5px;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .import-help-icon {
+            color: white;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .help-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .help-modal h2 {
+            margin-top: 0;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .end{
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: white;
+            display: flex;           /* 使用flex布局 */
+            justify-content: center; /* 垂直居中其子元素 */
+        }
+        .all{
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+    <div class="header" id="header">
+        <img src="icon.jpg" alt="scratch火柴人" class="h-8 w-auto">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded ml-auto" id="importButton">
+            导入名单 <i class="fa-regular fa-circle-question import-help-icon"></i>
+        </button>
+        <input type="file" id="fileInput" style="display: none;">
+    </div>
+    <h1 class="main-title text-4xl" id="mainTitle">大牙随机点名（点击修改）</h1>
+    <div class="info-box" id="infoBox">
+        等待导入文件
+    </div>
+    <div class="file-path-box" id="filePathBox">
+        <h3>上次导入文件路径</h3>
+    </div>
+    <div class="button-box" id="buttonBox">
+        <button class="bg-green-500 text-white px-4 py-2 rounded" id="startButton">开始点名</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded hidden" id="stopButton">停止</button>
+    </div>
+    <div class="speed-slider">
+        <label for="speedSlider">点名速度</label>
+        <input type="range" id="speedSlider" min="100" max="1000" value="500">
+    </div>
+    <div class="help-modal" id="helpModal">
+        <i class="fa-solid fa-xmark close-icon" id="closeIcon"></i>
+        <h2>导入说明</h2>
+        <p>欢迎使用大牙随机点名程序。点击导入按钮后，您可以选择一个文本文件，网页会解析您的文件，并且会记录您所导入文件所在的文件路径，这意味着您下次使用时可以直接点击文件导入而无需再次选择路径，当然，受浏览器限制，可能无法成功导入，页面会显示导入失败。导入后，您可以点击开始点名按钮开始随机切换您导入的文件中每行的内容，点击停止以停止抽取，您也可以拖动下方拖动条以调整随机点名速度。当未导入文件时，页面会显示你还没有导入文件字样。</p>
+    </div>
+</div>
+<div class="end">
+    <p>scratch火柴人&copy;2025</p>
+    <br>
+    <p>鸣谢：</p>
+    <a href="https://www.xiaohongshu.com/user/profile/5a96403011be10615e661a43?xsec_token=YBkDtaOwMpk5cwH1p7EoHx-XL4hQONiXVOGISdaAlkk-E%3D&xsec_source=app_share&xhsshare=WeixinSession&appuid=639e71b100000000260117d8&apptime=1743418023&share_id=5401cf05ec6247c8a5a6ee5c9ebcafe8&share_channel=wechat" target="_blank""><font color="white">北北</font></a>
+    <a><font color="white">、</font></a>
+    <a href="https://www.xiaohongshu.com/user/profile/5e75a5450000000001003a66?xsec_token=YBKVNvnziDbOQodSd0XCyEuhp0FS52YtEukMPByIjsUuc%3D&xsec_source=app_share&xhsshare=WeixinSession&appuid=639e71b100000000260117d8&apptime=1743417835&share_id=5c67916012e84b238f84df1ec8febd2f&share_channel=wechat" target="_blank"><font color="white">汇委</font></a>
+    <a><font color="white">、</font></a>
+    <a href="https://www.xiaohongshu.com/user/profile/5d4f5805000000001602e0c2?xsec_token=YBrseddft1nx7vv_M31lkrfC1N46aC_ouSDi6D4mboGEE%3D&xsec_source=app_share&xhsshare=WeixinSession&appuid=639e71b100000000260117d8&apptime=1743418048&share_id=2d0b14faf77c45adb2e321986ffb938b&share_channel=wechat" target="_blank"><font color="white">小孩哥</font></a>
+</div>
+<script>
+    const header = document.getElementById('header');
+    const importButton = document.getElementById('importButton');
+    const fileInput = document.getElementById('fileInput');
+    const infoBox = document.getElementById('infoBox');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const speedSlider = document.getElementById('speedSlider');
+    const mainTitle = document.getElementById('mainTitle');
+    const filePathBox = document.getElementById('filePathBox');
+    const helpModal = document.getElementById('helpModal');
+    const closeIcon = document.getElementById('closeIcon');
+
+    let names = [];
+    let intervalId;
+    let filePaths = JSON.parse(localStorage.getItem('filePaths')) || [];
+    let savedTitle = localStorage.getItem('mainTitle');
+
+    if (savedTitle) {
+        mainTitle.textContent = savedTitle;
+    }
+
+    importButton.addEventListener('click', (e) => {
+        if (e.target.classList.contains('import-help-icon')) {
+            helpModal.style.display = 'block';
+        } else {
+            fileInput.click();
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                names = event.target.result.split('\n');
+                infoBox.textContent = '导入成功';
+                const filePath = file.name;
+                filePaths.unshift(filePath);
+                if (filePaths.length > 5) {
+                    filePaths.pop();
+                }
+                localStorage.setItem('filePaths', JSON.stringify(filePaths));
+                updateFilePathBox();
+            };
+            reader.readAsText(file);
+        }
+    });
+
+    startButton.addEventListener('click', () => {
+        if (names.length === 0) {
+            alert('您还没有导入名单呢');
+            return;
+        }
+        startButton.classList.add('hidden');
+        stopButton.classList.remove('hidden');
+        intervalId = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            infoBox.textContent = names[randomIndex];
+        }, 1100 - parseInt(speedSlider.value));
+    });
+
+    stopButton.addEventListener('click', () => {
+        stopButton.classList.add('hidden');
+        startButton.classList.remove('hidden');
+        clearInterval(intervalId);
+    });
+
+    speedSlider.addEventListener('input', () => {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * names.length);
+                infoBox.textContent = names[randomIndex];
+            }, 1100 - parseInt(speedSlider.value));
+        }
+    });
+
+    mainTitle.addEventListener('click', () => {
+        const newTitle = prompt('请输入新的标题', mainTitle.textContent);
+        if (newTitle !== null) {
+            if (newTitle.trim() === '') {
+                alert('文字不可以为空');
+            } else {
+                mainTitle.textContent = newTitle;
+                localStorage.setItem('mainTitle', newTitle);
+            }
+        }
+    });
+
+    closeIcon.addEventListener('click', () => {
+        helpModal.style.display = 'none';
+    });
+
+    function updateFilePathBox() {
+        filePathBox.innerHTML = '<h3>上次导入文件路径</h3>';
+        filePaths.forEach((path) => {
+            const link = document.createElement('a');
+            link.textContent = path;
+            link.addEventListener('click', () => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', path, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            names = xhr.responseText.split('\n');
+                            infoBox.textContent = '导入成功';
+                        } else {
+                            infoBox.textContent = '导入失败';
+                        }
+                    }
+                };
+                xhr.send();
+            });
+            filePathBox.appendChild(link);
+        });
+    }
+
+    updateFilePathBox();
+</script>
+</body>
+
+</html>
+    
